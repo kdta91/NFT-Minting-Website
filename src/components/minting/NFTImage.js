@@ -9,7 +9,9 @@ const NFTImage = ({ tokenId, getCount, contract, signer }) => {
   const [isMinted, setIsMinted] = useState(false);
 
   useEffect(() => {
-    getMintedStatus();
+    const mintedStatus = async () => await getMintedStatus();
+    mintedStatus();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMinted]);
 
   const getMintedStatus = async () => {
